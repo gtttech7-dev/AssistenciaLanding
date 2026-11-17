@@ -1,17 +1,30 @@
 {
-  "name": "GT Tech",
-  "city": "Piracanjuba",
-  "state": "GO",
-  "domain": "https://assistenciamodelo.vercel.app/",
-  "phone": "(64)99294-1121",
-  "whatsapp": "(64)99294-1121",
-  "whatsappMessage": "Olá! Gostaria de solicitar um orçamento na GT Tech.",
-  "address": "Rua Moacir Teles",
-  "postalCode": "75640-000",
-  "mapsUrl": "https://share.google/3xajVgcf0I7FzNXSA",
-  "mapsEmbedUrl": "",
-  "googleReviewUrl": "",
-  "hours": [8],
+"name": "GT Tech",
+"city": "Piracanjuba",
+"state": "GO",
+"domain": "https://assistencia-landing.vercel.app",
+"phone": "(64) 99294-1121",
+"whatsapp": "5564992941121",
+"whatsappMessage": "Olá! Gostaria de solicitar um orçamento na GT Tech.",
+"address": "Rua Moacir Teles",
+"postalCode": "75640-000",
+"mapsUrl": "https://share.google/3xajVgcf0I7FzNXSA",
+"mapsEmbedUrl": "<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d693.1270854612098!2d-49.018696707680014!3d-17.301170193704383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935f43c5e3d85931%3A0xc23c5d475526eedb!2sAssistencia%20tecnica%20Celulares!5e0!3m2!1spt-BR!2sbr!4v1794945382394!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>",
+"googleReviewUrl": "https://g.page/r/CdvuJlVHXTzCECE/review",
+"hours": [
+  {
+    "label": "Segunda a sexta",
+    "time": "08h às 18h"
+  },
+  {
+    "label": "Sábado",
+    "time": "08h às 12h"
+  },
+  {
+    "label": "Domingo",
+    "time": "Fechado"
+  }
+],
   "socials": [],
   "indexable": true,
   "hero": {
