@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, whatsapp } from '../config/site';
+import { problemas } from '../data/problemas';
+
+const categorias = Array.from(new Set(problemas.map((item) => item.category)));
+const categoryId = (categoria: string) => `grupo-${categorias.indexOf(categoria) + 1}`;
+const title = `Problemas no celular: causas e soluções | ${site.name}`;
+const description = `Seu celular apresenta mancha na tela, falha no carregamento, linhas ou reinicia sozinho? Consulte 60 orientações da ${site.name}, assistência em ${site.city} – ${site.state}.`;
+---
+<Base title={title} description={description}>
+  <div class="guide">
+    <div class="container guide-shell">
+      <nav class="guide-breadcrumb" aria-label="Você está aqui"><a href="/">Início</a> <span aria-hidden="true">/</span> <span>Problemas com celular</span></nav>
+      <section class="guide-intro" aria-labelledby="guide-title">
+        <span class="guide-eyebrow">GT TECH · {site.city.toUpperCase()} – {site.state}</span>
+        <h1 id="guide-title">Problemas com seu celular?<br/><span>Entenda os sintomas.</span></h1>
+        <p>Mancha preta na tela, linha verde, carregamento falhando, celular que reinicia: encontre informações sobre causas possíveis e quando vale procurar assistência técnica. As orientações são gerais; cada aparelho precisa de avaliação para confirmar o defeito.</p>
+        <div class="guide-intro-bottom"><span><strong>{problemas.length}</strong> situações explicadas</span><span><strong>{categorias.length}</strong> categorias</span><a href={whatsapp('Avaliação técnica de celular')}>Solicitar avaliação pelo WhatsApp <span aria-hidden="true">↗</span></a></div>
+      </section>
+      <section class="guide-controls" aria-label="Pesquisar problemas">
+        <label for="guide-search">Qual problema está acontecendo com o seu celular?</label>
+        <div class="guide-searchline"><svg aria-hidden="true" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10.8" cy="10.8" r="7"/><path d="m16 16 5 5"/></svg><input id="guide-search" type="search" placeholder="Ex.: tela com mancha roxa, iPhone sem áudio, Xiaomi reiniciando" autocomplete="off"/><button id="clear-guide-search" type="button" aria-label="Limpar pesquisa" hidden>Limpar</button></div>
+        <div class="guide-filters" role="group" aria-label="Filtrar por categoria"><button class="guide-filter active" type="button" data-filter="all" aria-pressed="true">Todos os problemas</button>{categorias.map(categoria=><button class="guide-filter" type="button" data-filter={categoria} aria-pressed="false">{categoria}</button>)}</div>
+        <p class="guide-status" aria-live="polite"><span id="visible-count">{problemas.length}</span> assuntos encontrados</p>
+      </section>
+      <div id="guide-empty" class="guide-empty" hidden><h2>Nenhum assunto encontrado</h2><p>Tente usar outra palavra ou descreva seu problema diretamente no WhatsApp.</p><a href={whatsapp('Diagnóstico de celular')}>Conversar com a GT Tech ↗</a></div>
+      <div class="guide-groups">
+        {categorias.map((categoria)=> (
+          <section class="guide-category" data-category={categoria} id={categoryId(categoria)} aria-label={categoria}>
+            <div class="guide-category-header"><h2>{categoria}</h2><span>{problemas.filter(p=>p.category===categoria).length} assuntos</span></div>
+            <div class="guide-items">
+              {problemas.filter(p=>p.category===categoria).map((p)=> (
+                <details class="guide-item" id={p.id} data-category={p.category} data-search={`${p.title} ${p.causes} ${p.guidance} ${p.question} ${p.answer} ${p.service}`}>
+                  <summary><span class="guide-item-title">{p.title}</span><span aria-hidden="true" class="guide-expand">+</span></summary>
+                  <div class="guide-item-body"><div class="guide-content"><h3>O que pode estar acontecendo?</h3><p>{p.causes}</p><h3>O que fazer agora?</h3><p>{p.guidance}</p><h3 class="guide-related-title">Pergunta relacionada</h3><p class="guide-question">{p.question}</p><p>{p.answer}</p></div><div class="guide-item-actions"><a class="guide-help-link" href={whatsapp(`Meu celular está com o problema: ${p.title}`)}>Falar sobre este defeito no WhatsApp ↗</a><span>A avaliação presencial pode ser necessária para confirmar a causa.</span></div></div>
+                </details>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+      <section class="guide-lastcta" aria-labelledby="guide-lastcta-title"><div><span class="guide-eyebrow">ASSISTÊNCIA TÉCNICA EM {site.city.toUpperCase()} – {site.state}</span><h2 id="guide-lastcta-title">Não encontrou seu defeito?</h2><p>Descreva o problema e informe o modelo do celular. A GT Tech pode orientar sobre a avaliação técnica e a disponibilidade do serviço.</p></div><a href={whatsapp('Ajuda para identificar defeito no celular')}>Conversar no WhatsApp ↗</a></section>
+    </div>
+  </div>
+</Base>
+<style>
+  .guide{--guide-text:#e7eef9;--guide-muted:#9dacbf;--guide-border:rgba(143,165,195,.17);--guide-panel:#101725;--guide-panel-2:#111b2b;color:var(--guide-text);padding:0 0 7rem}
+  :global(html[data-theme="light"]) .guide{--guide-text:#1b293d;--guide-muted:#586b83;--guide-border:rgba(40,65,95,.17);--guide-panel:#fff;--guide-panel-2:#f1f5fb}
+  .guide-shell{max-width:1050px}
+  .guide-breadcrumb{display:flex;align-items:center;gap:10px;padding:2rem 0 1rem;color:var(--guide-muted);font-size:.83rem}.guide-breadcrumb a{color:inherit;text-decoration:none}.guide-breadcrumb a:hover{color:#428bff}
+  .guide-intro{padding:3.5rem 0 3rem;border-bottom:1px solid var(--guide-border)}.guide-eyebrow{display:block;color:#62a2ff;letter-spacing:.14em;font-size:.72rem;font-weight:750;margin-bottom:1.2rem}.guide-intro h1{color:var(--guide-text);font-size:clamp(2.2rem,5.9vw,4.55rem);line-height:1.12;letter-spacing:-.05em;margin:0 0 1.25rem;font-weight:760}.guide-intro h1 span{color:#5e9bff}.guide-intro>p{color:var(--guide-muted);max-width:760px;font-size:1.03rem;line-height:1.8}.guide-intro-bottom{display:flex;align-items:center;flex-wrap:wrap;gap:1.7rem;margin-top:2rem;color:var(--guide-muted);font-size:.9rem}.guide-intro-bottom strong{color:var(--guide-text);font-size:1.15rem}.guide-intro-bottom a,.guide-lastcta>a{display:inline-flex;padding:12px 18px;border-radius:10px;background:#256df1;color:white;text-decoration:none;font-size:.92rem;font-weight:650}.guide-intro-bottom a:hover,.guide-lastcta>a:hover{background:#418bff}
+  .guide-controls{padding:2.25rem 0 1.3rem}.guide-controls label{color:var(--guide-text);display:block;font-size:.96rem;font-weight:650;margin-bottom:.85rem}.guide-searchline{display:flex;align-items:center;gap:.8rem;padding:0 1rem;border:1px solid var(--guide-border);background:var(--guide-panel);border-radius:12px;min-height:60px}.guide-searchline svg{color:var(--guide-muted);flex:none}.guide-searchline:focus-within{border-color:#428bff;outline:2px solid rgba(66,139,255,.16)}.guide-searchline input{background:transparent;color:var(--guide-text);border:none;outline:none;flex:1;min-width:0;font:inherit;font-size:.96rem}.guide-searchline input::placeholder{color:var(--guide-muted)}#clear-guide-search{border:none;color:#8cbaff;background:transparent;cursor:pointer;font:inherit}.guide-filters{display:flex;flex-wrap:wrap;gap:.55rem;margin:1rem 0}.guide-filter{cursor:pointer;font:inherit;padding:8px 12px;font-size:.83rem;border-radius:999px;border:1px solid var(--guide-border);background:transparent;color:var(--guide-muted);transition:background .15s,border-color .15s}.guide-filter:hover,.guide-filter:focus-visible{border-color:#4089f6;color:var(--guide-text)}.guide-filter.active{color:white;border-color:#286ee5;background:#245dc9}.guide-status{color:var(--guide-muted);font-size:.85rem;margin-top:.75rem}
+  .guide-groups{display:grid;gap:2.75rem}.guide-category-header{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1rem;border-bottom:1px solid var(--guide-border);padding-bottom:.75rem}.guide-category-header h2{font-size:clamp(1.35rem,2.6vw,1.75rem);line-height:1.3;color:var(--guide-text);font-weight:710;margin:0}.guide-category-header span{font-size:.78rem;color:var(--guide-muted);white-space:nowrap}.guide-items{display:grid;gap:.5rem}.guide-item{background:var(--guide-panel);border:1px solid var(--guide-border);border-radius:12px;overflow:hidden;scroll-margin-top:100px}.guide-item[open]{border-color:rgba(72,134,255,.5)}.guide-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.05rem 1.25rem;min-height:64px}.guide-item summary::-webkit-details-marker{display:none}.guide-item summary:focus-visible{outline:2px solid #4089f6;outline-offset:-3px}.guide-item-title{color:var(--guide-text);font-weight:610;font-size:.95rem;line-height:1.45}.guide-expand{font-size:1.55rem;color:#72a6f8;font-weight:350;flex:none;transition:transform .15s}.guide-item[open] .guide-expand{transform:rotate(45deg)}.guide-item-body{padding:0 1.25rem 1.3rem;border-top:1px solid var(--guide-border)}.guide-content{padding-top:1.15rem}.guide-content h3{font-size:.91rem;color:var(--guide-text);margin:1.3rem 0 .35rem;font-weight:720}.guide-content h3:first-child{margin-top:0}.guide-content p{font-size:.94rem;line-height:1.78;color:var(--guide-muted);margin:0}.guide-content .guide-question{color:var(--guide-text);font-weight:620}.guide-item-actions{display:flex;align-items:center;flex-wrap:wrap;gap:.8rem 1.2rem;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid var(--guide-border)}.guide-help-link{text-decoration:none;color:#7db0ff;font-weight:660;font-size:.91rem}.guide-help-link:hover{text-decoration:underline}.guide-item-actions span{color:var(--guide-muted);font-size:.79rem}.guide-empty{padding:2rem;border:1px solid var(--guide-border);border-radius:12px;background:var(--guide-panel)}.guide-empty h2{font-size:1.2rem;color:var(--guide-text)}.guide-empty p{color:var(--guide-muted);margin:.7rem 0}.guide-empty a{color:#75a9ff}.guide-lastcta{border:1px solid var(--guide-border);border-radius:18px;background:var(--guide-panel-2);padding:2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;margin-top:4rem}.guide-lastcta h2{font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;color:var(--guide-text)}.guide-lastcta p{max-width:600px;color:var(--guide-muted);line-height:1.7;margin:.6rem 0 0}.guide-lastcta>a{flex:none}
+  [hidden]{display:none!important}
+  @media(max-width:650px){.guide-breadcrumb{padding:1.5rem 0 .5rem}.guide-intro{padding:2.2rem 0 2.3rem}.guide-intro>p{font-size:.95rem}.guide-intro-bottom{gap:1rem}.guide-intro-bottom a{width:100%;justify-content:center}.guide-controls{padding-top:1.6rem}.guide-searchline{min-height:56px}.guide-searchline input{font-size:.84rem}.guide-category-header{align-items:center}.guide-category-header span{font-size:.72rem}.guide-lastcta{display:grid;padding:1.35rem}.guide-lastcta>a{justify-content:center}.guide-item summary{padding:1rem}.guide-item-body{padding:0 1rem 1rem}}
+  @media(prefers-reduced-motion:reduce){.guide-filter,.guide-expand{transition:none}}
+</style>
+<script>
+  const input=document.querySelector<HTMLInputElement>('#guide-search');
+  const clear=document.querySelector<HTMLButtonElement>('#clear-guide-search');
+  const filters=Array.from(document.querySelectorAll<HTMLButtonElement>('.guide-filter'));
+  const items=Array.from(document.querySelectorAll<HTMLDetailsElement>('.guide-item'));
+  const groups=Array.from(document.querySelectorAll<HTMLElement>('.guide-category'));
+  const count=document.querySelector<HTMLElement>('#visible-count');
+  const empty=document.querySelector<HTMLElement>('#guide-empty');
+  let selected='all';
+  const normalize=(value:string)=>value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR').trim();
+  function update(){
+    const query=normalize(input?.value||'');let visible=0;
+    for(const item of items){
+      const matchesCategory=selected==='all'||item.dataset.category===selected;
+      const matchesText=!query||normalize(item.dataset.search||'').includes(query);
+      const show=matchesCategory&&matchesText;item.hidden=!show;if(!show)item.open=false;if(show)visible++;
+    }
+    for(const group of groups){group.hidden=!Array.from(group.querySelectorAll('.guide-item')).some(item=>!(item as HTMLElement).hidden);}
+    if(count)count.textContent=String(visible);if(empty)empty.hidden=visible>0;if(clear)clear.hidden=!input?.value;
+  }
+  filters.forEach(button=>button.addEventListener('click',()=>{selected=button.dataset.filter||'all';filters.forEach(b=>{const on=b===button;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});update();}));
+  input?.addEventListener('input',update);clear?.addEventListener('click',()=>{if(input)input.value='';input?.focus();update();});
+  if(location.hash){const id=decodeURIComponent(location.hash.slice(1));const item=document.getElementById(id);if(item instanceof HTMLDetailsElement){item.open=true;}}
+</script>

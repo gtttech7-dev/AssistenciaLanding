@@ -1,0 +1,18 @@
+---
+import {site} from '../config/site';
+const a=site.animation;
+const frame=(n:number)=>`${a.directory}/${a.prefix}${String(n).padStart(4,'0')}.${a.extension}`;
+---
+<div class="phone-scene" data-animation={JSON.stringify(a)}><div class="scene-glow"></div><img id="phone-frame" src={frame(a.count)} width="960" height="540" alt="Celular reparado e montado, com tela azul" fetchpriority="high" decoding="async"/><div class="scene-caption"><span class="tiny-dot"></span> Cuidado em cada detalhe.<span class="scene-line"></span></div></div>
+<script>
+const scene=document.querySelector<HTMLElement>('[data-animation]');
+if(scene){
+const config=JSON.parse(scene.dataset.animation!),display=scene.querySelector<HTMLImageElement>('img')!,motion=matchMedia('(prefers-reduced-motion: reduce)');
+let frames:HTMLImageElement[]=[],raf=0,timer=0,ready=false,visible=true;
+const show=(index:number)=>{display.src=frames[index].src;display.dataset.frame=String(index+1)};
+function stop(){cancelAnimationFrame(raf);clearTimeout(timer);if(ready)show(frames.length-1)}
+function play(){if(!ready||motion.matches||document.hidden||!visible)return;stop();const start=performance.now();display.alt='Animação de um celular desmontado sendo reparado e montado';function tick(now:number){const elapsed=now-start;show(Math.min(frames.length-1,Math.floor(elapsed/config.durationMs*frames.length)));if(elapsed<config.durationMs)raf=requestAnimationFrame(tick);else{display.alt='Celular reparado e montado, com tela azul';timer=window.setTimeout(play,Math.max(0,config.intervalMs-config.durationMs));}}raf=requestAnimationFrame(tick)}
+async function load(){if(ready||frames.length)return;try{frames=await Promise.all(Array.from({length:config.count},(_,i)=>new Promise<HTMLImageElement>((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=`${config.directory}/${config.prefix}${String(i+1).padStart(4,'0')}.${config.extension}`;})));ready=true;scene!.dataset.ready='true';play()}catch{scene!.dataset.ready='error';frames=[];}}
+if(!motion.matches)load();motion.addEventListener('change',()=>{if(motion.matches)stop();else if(ready)play();else load()});document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();else play()});new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;if(!visible)stop();else play()}).observe(scene);
+}
+</script>

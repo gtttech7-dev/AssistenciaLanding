@@ -1,0 +1,4 @@
+---
+import {site} from '../config/site';
+---
+<section class="container faq section" id="duvidas"><div><span class="eyebrow">SEM COMPLICAÇÃO</span><h2>Suas dúvidas.<br/>Respostas claras.</h2><p>Antes de deixar seu celular, entenda como funciona.</p></div><div>{site.faqs.map((f,i)=><details><summary>{f.q}<span aria-hidden="true">+</span></summary><p>{f.a}</p></details>)}</div></section>

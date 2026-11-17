@@ -1,0 +1,204 @@
+{
+  "name": "GT Tech",
+  "city": "Piracanjuba",
+  "state": "GO",
+  "domain": "https://assistenciamodelo.vercel.app/",
+  "phone": "(64)99294-1121",
+  "whatsapp": "(64)99294-1121",
+  "whatsappMessage": "Olá! Gostaria de solicitar um orçamento na GT Tech.",
+  "address": "Rua Moacir Teles",
+  "postalCode": "75640-000",
+  "mapsUrl": "https://share.google/3xajVgcf0I7FzNXSA",
+  "mapsEmbedUrl": "",
+  "googleReviewUrl": "",
+  "hours": [8],
+  "socials": [],
+  "indexable": true,
+  "hero": {
+    "title": "Seu celular\nnovo de novo.",
+    "description": "Da tela quebrada ao aparelho que não liga. Cuidamos do seu celular com atenção aos detalhes, diagnóstico claro e atendimento direto.",
+    "primary": "Solicitar orçamento"
+  },
+  "seo": {
+    "homeTitle": "GT Tech | Assistência técnica em Piracanjuba – GO",
+    "homeDescription": "Conserto de celular em Piracanjuba – GO. Troca de tela, bateria, conector, reparos de placa e software na GT Tech. Consulte seu orçamento.",
+    "contactTitle": "Contato e localização | GT Tech em Piracanjuba",
+    "contactDescription": "Fale com a GT Tech em Piracanjuba – GO. Consulte endereço, horários e disponibilidade para conserto do seu celular."
+  },
+  "animation": {
+    "count": 72,
+    "durationMs": 3000,
+    "intervalMs": 12000,
+    "directory": "/frames",
+    "prefix": "frame_",
+    "extension": "webp"
+  },
+  "stats": [],
+  "reviews": {
+    "enabled": true,
+    "demo": true,
+    "items": [
+      {
+        "name": "Mariana A.",
+        "text": "Expliquei o problema da tela e recebi uma orientação clara sobre o reparo. Gostei do atendimento.",
+        "date": "Exemplo ilustrativo",
+        "rating": 5
+      },
+      {
+        "name": "Carlos R.",
+        "text": "Meu celular estava com dificuldade para carregar. Me explicaram o diagnóstico antes de fazer o serviço.",
+        "date": "Exemplo ilustrativo",
+        "rating": 5
+      },
+      {
+        "name": "Juliana M.",
+        "text": "Consegui tirar minhas dúvidas sobre a bateria pelo WhatsApp e combinar o atendimento.",
+        "date": "Exemplo ilustrativo",
+        "rating": 5
+      }
+    ]
+  },
+  "services": [
+    {
+      "slug": "troca-de-tela",
+      "title": "Troca de tela",
+      "description": "Tela trincada, manchas ou touch sem resposta? Vamos avaliar a melhor solução.",
+      "number": "01",
+      "headline": "Uma tela quebrada muda toda a experiência.",
+      "sections": [
+        {
+          "title": "Quando procurar assistência",
+          "text": "Trincas no vidro, manchas escuras, linhas na imagem e falhas no toque podem indicar danos diferentes. Uma avaliação ajuda a identificar se o defeito está no conjunto da tela ou em outro componente."
+        },
+        {
+          "title": "O que influencia o orçamento",
+          "text": "Modelo do aparelho, tecnologia do display e disponibilidade da peça influenciam o valor. Informe o modelo e envie uma foto do defeito pelo WhatsApp para iniciar o atendimento."
+        },
+        {
+          "title": "Antes e depois da troca",
+          "text": "Faça uma cópia dos seus dados quando possível. Depois do reparo, confira imagem, toque, brilho e sensores com o técnico. A abertura do aparelho pode alterar sua resistência à água."
+        }
+      ],
+      "seoTitle": "Troca de tela em {city} | {name}",
+      "seoDescription": "Tela trincada, manchas ou touch sem resposta? Vamos avaliar a melhor solução. Atendimento da {name} em {city} – {state}. Saiba como funciona e solicite uma avaliação."
+    },
+    {
+      "slug": "troca-de-bateria",
+      "title": "Troca de bateria",
+      "description": "Mais autonomia começa com uma avaliação da saúde da sua bateria.",
+      "number": "02",
+      "headline": "Seu celular não precisa viver na tomada.",
+      "sections": [
+        {
+          "title": "Sinais que merecem avaliação",
+          "text": "Desligamentos inesperados, autonomia muito curta e oscilações na porcentagem podem estar relacionados à bateria. Aplicativos, carregador e circuito de carga também precisam ser considerados no diagnóstico."
+        },
+        {
+          "title": "Bateria estufada exige cuidado",
+          "text": "Se a tampa ou tela estiver levantando, interrompa o uso e o carregamento. Não pressione, perfure ou tente recolocar a peça. Procure atendimento técnico para avaliar o aparelho."
+        },
+        {
+          "title": "Uma escolha compatível",
+          "text": "A bateria deve ser compatível com o modelo do celular. O orçamento depende da peça e do trabalho necessário para acessar o componente. Confirme a disponibilidade antes de levar o aparelho."
+        }
+      ],
+      "seoTitle": "Troca de bateria em {city} | {name}",
+      "seoDescription": "Mais autonomia começa com uma avaliação da saúde da sua bateria. Atendimento da {name} em {city} – {state}. Saiba como funciona e solicite uma avaliação."
+    },
+    {
+      "slug": "conserto-de-celular",
+      "title": "Conserto de celular",
+      "description": "Diagnóstico para quedas, falhas de funcionamento e aparelhos que não ligam.",
+      "number": "03",
+      "headline": "Entender o defeito é o primeiro reparo.",
+      "sections": [
+        {
+          "title": "O sintoma nem sempre revela a causa",
+          "text": "Um aparelho que não liga pode ter falha na bateria, no botão, no sistema ou na placa. A avaliação evita trocar componentes sem identificar o problema."
+        },
+        {
+          "title": "Reparos de placa e diagnóstico",
+          "text": "Falhas intermitentes, ausência de imagem e problemas de alimentação podem exigir análise da placa. A viabilidade do reparo e o prazo dependem do dano encontrado."
+        },
+        {
+          "title": "O que contar ao técnico",
+          "text": "Informe o modelo, quando o problema começou e se houve queda, contato com líquido ou reparo anterior. Se o celular molhou, não coloque para carregar e não tente secar com calor."
+        }
+      ],
+      "seoTitle": "Conserto de celular em {city} | {name}",
+      "seoDescription": "Diagnóstico para quedas, falhas de funcionamento e aparelhos que não ligam. Atendimento da {name} em {city} – {state}. Saiba como funciona e solicite uma avaliação."
+    },
+    {
+      "slug": "reparo-de-conector",
+      "title": "Conector de carga",
+      "description": "Mau contato, carregamento intermitente ou cabo que não encaixa direito.",
+      "number": "04",
+      "headline": "Volte a carregar sem malabarismos.",
+      "sections": [
+        {
+          "title": "Nem sempre é o conector",
+          "text": "Cabos danificados, carregadores incompatíveis e resíduos podem causar sintomas parecidos. A avaliação verifica o caminho de carga antes de indicar a troca de uma peça."
+        },
+        {
+          "title": "Evite forçar o encaixe",
+          "text": "Não mantenha o cabo pressionado para carregar nem introduza objetos metálicos na entrada. Isso pode danificar os contatos e agravar o problema."
+        },
+        {
+          "title": "Como funciona o reparo",
+          "text": "Dependendo do modelo, o conector está em uma placa auxiliar ou exige trabalho de soldagem. Após o serviço, é importante verificar o carregamento e as funções relacionadas à conexão."
+        }
+      ],
+      "seoTitle": "Conector de carga em {city} | {name}",
+      "seoDescription": "Mau contato, carregamento intermitente ou cabo que não encaixa direito. Atendimento da {name} em {city} – {state}. Saiba como funciona e solicite uma avaliação."
+    },
+    {
+      "slug": "reparo-de-software",
+      "title": "Software e sistema",
+      "description": "Atualizações, travamentos e falhas na inicialização do aparelho.",
+      "number": "05",
+      "headline": "Um sistema estável faz diferença.",
+      "sections": [
+        {
+          "title": "Travamentos têm diferentes origens",
+          "text": "Pouco armazenamento, aplicativos incompatíveis e falhas em atualizações podem afetar o funcionamento. Problemas físicos também podem causar reinicializações e precisam ser descartados."
+        },
+        {
+          "title": "Proteja seus arquivos",
+          "text": "Alguns procedimentos exigem restauração e podem apagar dados. Faça backup quando possível e confirme com o técnico o que será necessário antes de autorizar o serviço."
+        },
+        {
+          "title": "Contas e acesso ao aparelho",
+          "text": "Tenha acesso às suas contas Google ou Apple e aos meios de recuperação. Restaurações não removem a necessidade das credenciais do proprietário. Não envie senhas pelo WhatsApp."
+        }
+      ],
+      "seoTitle": "Software e sistema em {city} | {name}",
+      "seoDescription": "Atualizações, travamentos e falhas na inicialização do aparelho. Atendimento da {name} em {city} – {state}. Saiba como funciona e solicite uma avaliação."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Quanto tempo demora o conserto?",
+      "a": "O prazo depende do defeito, do modelo e da disponibilidade de peças. Envie os detalhes do aparelho para consultar uma estimativa; o prazo é confirmado após a avaliação."
+    },
+    {
+      "q": "Vocês fazem orçamento?",
+      "a": "Sim. Entre em contato com o modelo do aparelho e uma descrição do problema. Confirme previamente as condições da avaliação e se há custo de diagnóstico."
+    },
+    {
+      "q": "Atendem quais marcas?",
+      "a": "Consulte a disponibilidade para o modelo do seu aparelho. A possibilidade de reparo depende do defeito e das peças necessárias."
+    },
+    {
+      "q": "O celular perde os dados?",
+      "a": "Nem todo reparo exige apagar os dados, mas não é possível garantir sua preservação. Faça backup quando possível. Procedimentos de software podem exigir restauração."
+    },
+    {
+      "q": "Precisa agendar?",
+      "a": "Fale com a equipe antes de ir à loja para confirmar horário e disponibilidade. Isso ajuda a organizar seu atendimento."
+    },
+    {
+      "q": "Como funciona o atendimento?",
+      "a": "Você informa o problema, a equipe avalia o aparelho e apresenta as condições do serviço. Confirme orçamento e prazo antes de autorizar o reparo."
+    }
+  ]
+}

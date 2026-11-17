@@ -1,0 +1,2 @@
+import {site} from '../config/site';
+export function GET(){const paths=['/','/contato/','/problemas-com-celular/',...site.services.map(s=>`/${s.slug}/`)]; const escape=(s:string)=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');return new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${site.domain?paths.map(p=>`<url><loc>${escape(new URL(p,site.domain).href)}</loc></url>`).join(''):''}</urlset>`,{headers:{'Content-Type':'application/xml'}})}

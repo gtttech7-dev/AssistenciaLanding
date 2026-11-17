@@ -1,0 +1,4 @@
+---
+import Base from '../layouts/Base.astro';import Contact from '../components/Contact.astro';import {site} from '../config/site';
+---
+<Base title={site.seo.contactTitle} description={site.seo.contactDescription}><section class="container contact-heading"><span class="eyebrow">ATENDIMENTO DIRETO</span><h1>Fale com a <span class="blue">{site.name}.</span></h1><p>Assistência técnica em {site.city} – {site.state}.</p></section><Contact/></Base>

@@ -1,0 +1,5 @@
+---
+import { whatsapp } from '../config/site';
+const {label='Solicitar orçamento',service='',secondary=false}=Astro.props;
+---
+<a class:list={['button',{secondary}]} href={whatsapp(service)}>{label}<span aria-hidden="true">↗</span></a>
